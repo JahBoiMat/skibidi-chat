@@ -77,3 +77,15 @@ body {
 #send-button:active {
     background-color: #666; /* Active state */
 }
+/* Chat Container */
+#chat-container {
+    width: calc(100% - 40px); /* Adjusting for left and right margin */
+    margin: 20px; /* Adjust this value for desired spacing from the edges */
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a; /* Dark grey */
+    border: 1px solid #333; /* Border with darker tone */
+    border-radius: 8px;
+    overflow: hidden;
+}
