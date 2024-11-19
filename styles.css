@@ -14,20 +14,20 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Prevents overflow */
+    overflow: hidden;
 }
 
 /* Chat Container */
 #chat-container {
-    width: calc(100% - 32px); /* Full width minus margin for clean spacing */
+    width: calc(100% - 32px); /* Full width minus margin */
     height: calc(100% - 32px); /* Full height minus margin */
-    max-width: 800px; /* Optional: Limit maximum width for larger screens */
-    max-height: 95vh; /* Optional: Prevents vertical overflow */
-    margin: 16px; /* Margin for clean spacing */
+    max-width: 800px;
+    max-height: 95vh;
+    margin: 16px;
     display: flex;
     flex-direction: column;
-    background-color: #1a1a1a; /* Dark grey */
-    border: 1px solid #333; /* Border with darker tone */
+    background-color: #1a1a1a;
+    border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -37,65 +37,139 @@ body {
     flex-grow: 1;
     padding: 16px;
     overflow-y: auto;
-    background-color: #121212; /* Slightly lighter grey */
+    background-color: #121212;
 }
 
 /* Input Container */
 #input-container {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping for small screens */
-    gap: 8px; /* Space between input and button */
+    flex-wrap: wrap;
+    gap: 8px;
     padding: 8px;
     background-color: #1a1a1a;
     border-top: 1px solid #333;
-    width: 100%; /* Ensures it doesn't overflow */
 }
 
-/* Input Field */
 #message-input {
-    flex: 1; /* Takes up remaining space */
-    min-width: 0; /* Prevents input from overflowing */
+    flex: 1;
+    min-width: 0;
     padding: 10px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     outline: none;
-    background-color: #333; /* Input field background */
-    color: #fff; /* Input field text */
+    background-color: #333;
+    color: #fff;
 }
 
-/* Send Button */
-#send-button {
-    flex-shrink: 0; /* Prevents the button from shrinking too much */
+#send-button,
+#change-user-button {
+    flex-shrink: 0;
     padding: 10px 16px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
-    background-color: #444; /* Button background */
-    color: #fff; /* Button text */
+    background-color: #444;
+    color: #fff;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-#send-button:hover {
-    background-color: #555; /* Slightly lighter hover effect */
+#send-button:hover,
+#change-user-button:hover {
+    background-color: #555;
 }
 
-#send-button:active {
-    background-color: #666; /* Active state */
+#send-button:active,
+#change-user-button:active {
+    background-color: #666;
+}
+
+/* Popup Styling */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup.hidden {
+    display: none;
+}
+
+#popup-content {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+#popup-content h3 {
+    margin-bottom: 16px;
+}
+
+#username-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+#error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#error-message.hidden {
+    display: none;
+}
+
+#popup-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#popup-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#popup-buttons button:hover {
+    background-color: #555;
 }
 
 /* Responsive Design */
-@media (max-width: 420px) {
+@media (max-width: 600px) {
     #input-container {
-        flex-direction: column; /* Stacks input and button */
+        flex-direction: column;
     }
 
     #message-input {
-        min-width: 100%; /* Full width for small screens */
+        min-width: 100%;
     }
 
-    #send-button {
-        width: 100%; /* Full width for small screens */
+    #send-button,
+    #change-user-button {
+        width: 100%;
     }
 }
