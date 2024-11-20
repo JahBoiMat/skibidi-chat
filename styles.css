@@ -43,28 +43,20 @@ body {
 /* Input Container */
 #input-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    align-items: center; /* Align elements vertically centered */
+    gap: 8px; /* Space between elements */
     padding: 8px;
     background-color: #1a1a1a;
     border-top: 1px solid #333;
 }
 
-#message-input {
-    flex: 1;
-    min-width: 0;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    background-color: #333;
-    color: #fff;
+/* Change User Container */
+#change-user-container {
+    display: flex;
+    flex-shrink: 0;
 }
 
-#send-button,
 #change-user-button {
-    flex-shrink: 0;
     padding: 10px 16px;
     font-size: 16px;
     border: none;
@@ -75,6 +67,36 @@ body {
     transition: background-color 0.2s;
 }
 
+/* Input Field */
+#message-input {
+    flex: 1; /* Takes up remaining space */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Send Button Container */
+#send-button-container {
+    display: flex;
+    flex-shrink: 0;
+}
+
+#send-button {
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Button Hover and Active States */
 #send-button:hover,
 #change-user-button:hover {
     background-color: #555;
@@ -93,6 +115,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(2px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,15 +184,22 @@ body {
 /* Responsive Design */
 @media (max-width: 400px) {
     #input-container {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Stack input field and buttons vertically */
+        gap: 8px; /* Space between stacked elements */
     }
 
     #message-input {
-        min-width: 100%;
+        width: 100%; /* Input spans full width */
     }
 
-    #send-button,
-    #change-user-button {
-        width: 100%;
+    #change-user-container,
+    #send-button-container {
+        display: flex;
+        width: 100%; /* Buttons span full width */
+    }
+
+    #change-user-button,
+    #send-button {
+        flex: 1; /* Buttons take equal width */
     }
 }
